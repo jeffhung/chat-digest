@@ -32,7 +32,7 @@ Build the upload packages:
 make package
 ```
 
-This creates two zips in `dist/`, with the version read from `plugin.json`:
+This creates two zips in `dist/`:
 
 - `chat-digest-v<version>.zip`: the plugin package, with the plugin manifests
   and `skills/` at the zip root. This is the main package, for ChatGPT and

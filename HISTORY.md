@@ -1,5 +1,10 @@
 # History
 
+## 0.1.2
+
+- The package can now be uploaded to ChatGPT and Claude.ai.
+- Gemini uses a separate skill package.
+
 ## 0.1.1
 
 - Support hosts that cannot create files or artifacts, such as Gemini web. The
