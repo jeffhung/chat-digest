@@ -1,0 +1,17 @@
+{
+  "name": "chat-digest",
+  "version": "0.1.0",
+  "description": "Turn AI conversations into organized, reusable Markdown documents that preserve key problems, constraints, proposed solutions, trade-offs, and decisions.",
+  "author": {
+    "name": "Jeff Hung",
+    "email": "jeff.cc.hung@gmail.com"
+  },
+  "keywords": [
+    "conversation",
+    "documentation",
+    "summary",
+    "markdown",
+    "problem-solving"
+  ],
+  "skills": "./skills"
+}
