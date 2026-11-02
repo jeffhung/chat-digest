@@ -1,0 +1,26 @@
+{
+  "author": {
+    "email": "jeff.cc.hung@gmail.com",
+    "name": "Jeff Hung"
+  },
+  "description": "Turn AI conversations into organized, reusable Markdown documents that preserve key problems, constraints, proposed solutions, trade-offs, and decisions.",
+  "interface": {
+    "capabilities": [],
+    "category": "Productivity",
+    "defaultPrompt": "Organize and summarize this chat as a reusable Markdown document.",
+    "developerName": "Jeff Hung",
+    "displayName": "Chat Digest",
+    "longDescription": "Turn an AI conversation into an organized, reusable Markdown document. Preserve key problems, requirements, constraints, risks, proposed methods, analysis topics, solution variants, comparisons, open questions, and decisions without inventing missing details or choosing a winner.",
+    "shortDescription": "Organize and summarize chats"
+  },
+  "keywords": [
+    "conversation",
+    "documentation",
+    "summary",
+    "markdown",
+    "problem-solving"
+  ],
+  "name": "chat-digest",
+  "skills": "./skills",
+  "version": "0.1.0"
+}
