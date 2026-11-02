@@ -24,21 +24,28 @@ claude --plugin-dir /path/to/chat-digest
 Then ask Claude to digest the conversation, or invoke
 `/chat-digest:chat-digest`.
 
-## Upload to Claude.ai, ChatGPT, or Gemini
+## Upload to ChatGPT, Claude.ai, or Gemini
 
-Build the upload package:
+Build the upload packages:
 
 ```
 make package
 ```
 
-This creates `dist/chat-digest-v<version>.zip`, where the version is read from
-`plugin.json`. The zip holds the `chat-digest` skill folder with
-`SKILL.md` inside, the layout these hosts accept for skill uploads.
+This creates two zips in `dist/`, with the version read from `plugin.json`:
 
-- Claude.ai: Settings > Capabilities > Skills > Upload skill. Code execution
-  and file creation must be enabled for the skill to produce a Markdown file.
-- Gemini (gemini.google.com): upload on the Skills page. Gemini cannot
-  create files or artifacts, so the skill outputs the digest as one
-  copyable `markdown` code block in the chat.
-- ChatGPT (chatgpt.com): upload as a custom skill. Not yet verified.
+- `chat-digest-v<version>.zip`: the plugin package, with the plugin manifests
+  and `skills/` at the zip root. This is the main package, for ChatGPT and
+  Claude.ai. ChatGPT rejects archives without them there.
+- `chat-digest-skill-v<version>.zip`: the skill package, with the skill folder
+  (`chat-digest/SKILL.md`) at the top level. Gemini accepts only this form,
+  while Claude.ai rejects it.
+
+`make package-plugin` and `make package-skill` build each one separately.
+
+- ChatGPT (chatgpt.com): upload the plugin package.
+- Gemini (gemini.google.com): upload the skill package on the Skills page.
+  Gemini cannot create files or artifacts, so the skill outputs the digest as
+  one copyable `markdown` code block in the chat.
+- Claude.ai: upload the plugin package. Code execution and file creation must
+  be enabled for the skill to produce a Markdown file.

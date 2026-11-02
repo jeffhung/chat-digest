@@ -38,13 +38,21 @@ Before finishing, confirm all three files agree, and that
 
 Never bump `version` on your own. Version bumps are triggered by a human only.
 
-When a human asks for a bump, also add an entry for the new version to
-`HISTORY.md`.
+Do not touch `HISTORY.md` during normal work. Update it only when a human
+says a release is being planned, by adding an entry for the new version.
+Never edit the entry of an already released version.
 
 ## Packaging
 
-- Run `make package` to build the upload zip. The zip must have the
-  `chat-digest` folder at its top level with `SKILL.md` inside.
+- Run `make package` to build both upload zips. Two layouts are needed:
+  - Plugin package (main, `chat-digest-v<version>.zip`, for ChatGPT and
+    Claude.ai):
+    `plugin.json`, `.claude-plugin/`, `.codex-plugin/`, and `skills/` at the
+    zip root. ChatGPT rejects archives without a plugin manifest or
+    `skills/*/SKILL.md` at the root.
+  - Skill package (additional, `chat-digest-skill-v<version>.zip`, for Gemini
+    only): the `chat-digest` folder at the top level with `SKILL.md` inside.
+    Gemini rejects the plugin package; Claude.ai rejects the skill package.
 - Do not add `.DS_Store` or `.pyc` files to the skill folder; they can make
   uploads fail.
 - `dist/` is generated and gitignored.
