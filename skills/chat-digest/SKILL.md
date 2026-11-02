@@ -6,7 +6,7 @@ version: 0.1.0
 
 # Chat Digest
 
-Turn the current conversation into a self-contained Markdown document that makes the discussion easy to understand and continue later. Create and attach the Markdown file as an artifact when the host supports file creation; do not provide only an in-chat summary when an artifact can be created.
+Turn the current conversation into a self-contained Markdown document that makes the discussion easy to understand and continue later. Deliver it as a Markdown file when the host can create one; otherwise deliver it as a single copyable code block (see Output). Do not provide only an in-chat summary.
 
 ## Source and fidelity
 
@@ -78,8 +78,21 @@ Compare the solution variants as a whole across important analysis topics and re
 
 ## Final quality check
 
-Before creating the artifact, verify that all important requirements and concerns are included; every distinct method variant is represented; methods, analysis topics, solutions, and comparisons have distinct purposes; each method has its own pros and cons; each analysis topic focuses on one aspect; coexisting options are consolidated; optional methods have clear unique contributions; comparisons are objective and holistic; unknowns and disputed points remain explicit; and the Markdown can be understood without rereading the chat.
+Before delivering the document, verify that all important requirements and concerns are included; every distinct method variant is represented; methods, analysis topics, solutions, and comparisons have distinct purposes; each method has its own pros and cons; each analysis topic focuses on one aspect; coexisting options are consolidated; optional methods have clear unique contributions; comparisons are objective and holistic; unknowns and disputed points remain explicit; and the Markdown can be understood without rereading the chat.
 
 ## Output
 
+Choose the delivery mode by what the host supports.
+
+### Host can create files or artifacts
+
 Create a Markdown file with a descriptive filename such as `chat-digest.md` or a topic-specific name. Attach it as an artifact. In the chat response, briefly identify the artifact and any material gaps. Do not reproduce the full document in chat when the artifact is available.
+
+### Host cannot create files or artifacts (for example, Gemini web)
+
+Output the complete document inside one fenced code block with the `markdown` language identifier, so the chat UI renders it as a single block with a copy button.
+
+- The outer fence must be longer than any backtick run inside the document, so inner code fences never end the block early. Default to four backticks (` ````markdown `, closed with four backticks); this is confirmed to render as one copyable block on Gemini web only.
+- If the host does not render the four-backtick fence as a single block, fall back to a three-backtick fence when the document contains no code fences. If it does contain code fences, use a tilde fence (`~~~markdown`) as the outer fence instead.
+- Put the whole document in the block, from the title heading to the last section. Do not split it across several blocks.
+- Write nothing outside the block: no introduction, no closing summary. Record material gaps inside the document under Open Questions.

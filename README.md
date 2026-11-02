@@ -38,5 +38,7 @@ This creates `dist/chat-digest-v<version>.zip`, where the version is read from
 
 - Claude.ai: Settings > Capabilities > Skills > Upload skill. Code execution
   and file creation must be enabled for the skill to produce a Markdown file.
-- Gemini (gemini.google.com): upload on the Skills page.
+- Gemini (gemini.google.com): upload on the Skills page. Gemini cannot
+  create files or artifacts, so the skill outputs the digest as one
+  copyable `markdown` code block in the chat.
 - ChatGPT (chatgpt.com): upload as a custom skill. Not yet verified.
