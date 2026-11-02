@@ -25,6 +25,8 @@ change:
   `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json`.
 - Copy `extensions."com.openai".interface` from `plugin.json` to the
   `interface` field of `.codex-plugin/plugin.json`.
+- Set `version` in the front matter of `skills/chat-digest/SKILL.md` to the
+  same value.
 - Leave host-only fields (such as `skills`) as they are.
 - Never edit shared metadata in a derived manifest alone. Change `plugin.json`
   first, then propagate.
@@ -35,6 +37,9 @@ Before finishing, confirm all three files agree, and that
 ## Versioning
 
 Never bump `version` on your own. Version bumps are triggered by a human only.
+
+When a human asks for a bump, also add an entry for the new version to
+`HISTORY.md`.
 
 ## Packaging
 

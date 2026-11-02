@@ -4,7 +4,7 @@ description: |
   Use when a user wants an AI conversation organized and summarized into
   a reusable Markdown document that preserves key context, requirements,
   options, trade-offs, and decisions.
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Chat Digest
